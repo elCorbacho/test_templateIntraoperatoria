@@ -1,45 +1,62 @@
 <html>
-  <head>
-    <meta charset="UTF-8">
-  </head>
-  
-    <header style="margin: 10px; padding: 0; font-family: Arial; font-size: 14px"><!-- Encabezado -->
-        <img src="https://d328k6xhl3lmif.cloudfront.net/images/default-source/p-100-images/footer/logo-uc-footer.svg?sfvrsn=75d1d062_3" style="display: block; margin: auto;" alt="Logo UC">
-        <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0 20px 0;">
-    </header>
-    <body style="margin: 10px; padding: 0; font-family: Arial; font-size: 14px"> <!-- Cuerpo -->
-        <h2 style="color:#005fa3; text-align: center; margin: 10px 0;">INFORME INTRAOPERATORIO APA UC CHRISTUS</h2>
-        <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0 40px 0;"> <!-- Espacio entre secciones -->
-
-        <h2>DATOS DEL PACIENTE </h2>
-        <p><strong>RUT Paciente:</strong> @{outputs('Get_response_details')?['body/r54527abbfe284f7b896d706d3b990795']}</p>
-        <p><strong>Nombre y Apellidos:</strong> @{outputs('Get_response_details')?['body/rcfec2b57e5ec4d02bb24beb3778400a6']}</p>
-
-        <hr style="border: none; border-top: 1px solid #ffffff; margin: 20px 0 20px 0;"> <!-- Espacio entre secciones -->
-        <p><strong>Procedencia:</strong> @{outputs('Get_response_details')?['body/rd42dd7110a684ea69cc8e07482bde25d']}</p>
-        <p><strong>Médico solicitante:</strong> @{outputs('Get_response_details')?['body/re2d9d07d5786449ca2825671eebb95ac']}</p>
-        
-        <hr style="border: none; border-top: 1px solid white; margin: 0 0 20px 0;">
-
-        <h2>Diagnóstico intraoperatorio:</h2>
-        <p><strong>Órgano/s: </strong> @{outputs('Get_response_details')?['body/r5e6347d0a90c46e1a419fc5145b5459a']}</p>
-        <p>@{outputs('Get_response_details')?['body/r8834759c47fc47bb8a167104912c4280']}</p>
-        <hr style="border: none; border-top: 1px solid white; margin: 0 0 20px 0;">
-        <p><strong>Residente: </strong></p>
-        <p><strong>Patologo Staff: </strong></p>
-
-
-
-        <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0 40px 0;"> <!-- Espacio entre secciones -->
-        
-        <p><strong>Cantidad de topes / láminas:</strong> @{outputs('Get_response_details')?['body/rb8f9d445777d47cbb0bbd90dc5fa23bf']}</p>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      line-height: 1.2;
+      margin: 0;
+      padding: 0;
+    }
+    p {
+      margin: 2px 0;
+    }
+    h2, h3 {
+      margin: 5px 0;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 5px 0;
+    }
+    .center {
+      text-align: center;
+      color:#485ac2;
+    }
+    img.logo {
+      display: block;
+      margin: auto;
+      width: 150px;
+    }
+  </style>
+</head>
+    <body>
+    <p class="center">
+        <img src="https://d328k6xhl3lmif.cloudfront.net/images/default-source/p-100-images/footer/logo-uc-footer.svg?sfvrsn=75d1d062_3"
+            class="logo" alt="Logo UC">
+    </p>
+    <hr>
+    <h2 class="center">INFORME INTRAOPERATORIO APA UC CHRISTUS</h2>
+    <hr>
+    <h3>DATOS DEL PACIENTE</h3>
+    <p><strong>RUT Paciente:</strong> @{outputs('Get_response_details')?['body/r54527abbfe284f7b896d706d3b990795']}</p>
+    <p><strong>Nombre y Apellidos:</strong> @{outputs('Get_response_details')?['body/rcfec2b57e5ec4d02bb24beb3778400a6']}</p>
+    <p><strong>Procedencia:</strong> @{outputs('Get_response_details')?['body/rd42dd7110a684ea69cc8e07482bde25d']}</p>
+    <p><strong>Médico solicitante:</strong> @{outputs('Get_response_details')?['body/re2d9d07d5786449ca2825671eebb95ac']}</p>
+    <hr>
+    <h3>Diagnóstico intraoperatorio:</h3>
+    <p style="margin: 0 0 10px 0">@{outputs('Get_response_details')?['body/r8834759c47fc47bb8a167104912c4280']}</p>
+    <p><strong>Órgano/s:</strong> @{outputs('Get_response_details')?['body/r5e6347d0a90c46e1a419fc5145b5459a']}</p>
+    <p><strong>Residente:</strong></p>
+    <p><strong>Patólogo Staff:</strong></p>
+    <p style="margin: 0 0 50px 0">Informe generado el:</strong> @{convertTimeZone(utcNow(), 'UTC', 'Pacific SA Standard Time', 'dd/MM/yyyy HH:mm')}</p>
+    <p style="text-align: right;"><strong>Firma patologo responsable del caso</strong></p>
+    <hr>
+    <p><strong>Cantidad de topes / láminas:</strong> @{outputs('Get_response_details')?['body/rb8f9d445777d47cbb0bbd90dc5fa23bf']}</p>
+    <hr>
+    <p class="center"><strong>Anexo sala de intraoperatorias pabellón 3ro: 6474</strong></p>
+    <p class="center"><strong>Anexo macroscopia: 3204</strong></p>
+    <hr>
     </body>
-
-    <footer>
-        <hr style="border: none; border-top: 1px solid #ffffff; margin: 20px 0 20px 0;"> <!-- Espacio entre secciones -->
-        <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0 20px 0;">
-        <p style="text-align: center;"><strong>Anexo sala de intraoperatorias pabellon 3ro: 6474</strong></p>
-        <p style="text-align: center;"><strong>Anexo macroscopia: 3204</strong></p>
-        <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0 20px 0;">
-    </footer>
 </html>
